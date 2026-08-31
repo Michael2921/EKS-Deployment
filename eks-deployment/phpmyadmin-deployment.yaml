@@ -19,17 +19,17 @@ spec:
         image: phpmyadmin
         ports:
         - containerPort: 80
-        env:
-        - name: PMA_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: customapp-configmap
-              key: PMA_HOST
-        - name: PMA_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: customapp-configmap
-              key: PMA_PORT
+        # env:
+        # - name: PMA_HOST
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: customapp-configmap
+        #       key: PMA_HOST
+        # - name: PMA_PORT
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: customapp-configmap
+        #       key: PMA_PORT
 
 ---
 
