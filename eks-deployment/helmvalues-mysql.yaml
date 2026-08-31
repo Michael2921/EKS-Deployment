@@ -1,0 +1,15 @@
+architecture: replication
+replicaCount: 2
+auth:
+  database: mydb
+  username: myuser
+  existingSecret: mysql-creds
+persistence:
+  storageClass: "linode-block-storage"
+global:
+  security:
+    allowInsecureImages: True
+image: 
+  registry: docker.io
+  tag: latest
+  repository: bitnamilegacy/mysql

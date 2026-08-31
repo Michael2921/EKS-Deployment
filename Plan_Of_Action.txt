@@ -1,0 +1,5 @@
+With eksctl, create a cluster with 3 nodes (min, desired and max) and 1 fargate profile (see if that can be inclided in the eksctl command)
+
+Go to Console to see all that was created with eksctl and take screenshots
+
+See if I can deploy with eksctl, using a config file
