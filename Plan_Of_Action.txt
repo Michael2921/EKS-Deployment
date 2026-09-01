@@ -3,3 +3,19 @@ With eksctl, create a cluster with 3 nodes (min, desired and max) and 1 fargate 
 Go to Console to see all that was created with eksctl and take screenshots
 
 See if I can deploy with eksctl, using a config file
+
+
+eks create cluster --name company-cluster --region us-east-1 --nodegroup-name company-nodegroup --node-type t2.micro --nodes 2 --nodes-min 2 --nodes-min 2 --dry-run
+
+Plans
+
+Configure autoscaling to show how it resolves issues with pod capacity
+
+Show deploying phpmyadmin fails due to insufficient capacity with 2 nodes - using t2.micro (show how the loadbalancer works with ELB)
+Configure autoscaler
+Show how autoscaler solves the first issue and solves subsequent issues of deploying more pods
+
+Test phpmyadmin deployment - success
+Build company app with env variables and push to ECR (eventually run with fargate)
+Set env variables for company app in deployment file
+Pull mysql container and set env variables, root pass, userpass, replication pass

@@ -5,7 +5,9 @@ auth:
   username: myuser
   existingSecret: mysql-creds
 persistence:
-  storageClass: "linode-block-storage"
+  enabled: true
+  storageClass: gp2
+  size: 10Gi
 global:
   security:
     allowInsecureImages: True
