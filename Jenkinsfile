@@ -41,6 +41,7 @@ pipeline {
                     echo 'Deleting phpadmin deployment if already deployed'
                    // sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl delete -f -'
                     echo 'Deploying mysql...'
+                    sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
                     sh 'helm install mysql --values helmvalues-mysql.yaml bitnami/mysql'
                     echo 'Deploying phpmyadmin'
                     sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl apply -f -'
