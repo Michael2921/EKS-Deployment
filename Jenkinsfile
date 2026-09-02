@@ -45,6 +45,8 @@ pipeline {
                    // sh 'helm install mysql --values eks-deployment/helmvalues-mysql.yaml bitnami/mysql' // install mysql from added repo
                     echo 'Deploying phpmyadmin'
                     sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl apply -f -'
+                    echo 'Deploying companyapp'
+                    sh 'envsubst < eks-deployment/companyapp-deployment.yaml | kubectl apply -f -'
                 }
              
             }
