@@ -23,12 +23,12 @@ spec:
         - name: PMA_HOST
           valueFrom:
             configMapKeyRef:
-              name: customapp-configmap
+              name: companyapp-configmap
               key: PMA_HOST
         - name: PMA_PORT
           valueFrom:
             configMapKeyRef:
-              name: customapp-configmap
+              name: companyapp-configmap
               key: PMA_PORT
 
 ---

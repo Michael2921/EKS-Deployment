@@ -40,10 +40,9 @@ pipeline {
                 script {
                     echo 'Deploying the configmap'
                     sh 'envsubst < eks-deployment/companyapp-configmap.yaml | kubectl apply -f -'                    
-                   // sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl delete -f -'
                    // echo 'Deploying mysql...'
                    // sh 'helm repo add bitnami https://charts.bitnami.com/bitnami' // add repo first
-                   // sh 'helm install mysql --values eks-deployment/helmvalues-mysql.yaml bitnami/mysql' // install from added repo
+                   // sh 'helm install mysql --values eks-deployment/helmvalues-mysql.yaml bitnami/mysql' // install mysql from added repo
                     echo 'Deploying phpmyadmin'
                     sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl apply -f -'
                 }
