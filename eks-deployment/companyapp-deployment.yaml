@@ -9,10 +9,12 @@ spec:
   selector:
     matchLabels:
       app: company-app
+      profile: fargate
   template:
     metadata:
       labels:
         app: company-app
+        profile: fargate
     spec:
       imagePullSecrets:
       - name: ecr-secret
