@@ -18,6 +18,7 @@ pipeline {
                 echo 'Building the application...'
                 sh 'gradle build'
                 sh 'pwd'
+                sh 'ls -lh build/libs/'
                 
                 }
               
