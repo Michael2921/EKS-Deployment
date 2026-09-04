@@ -27,8 +27,8 @@ pipeline {
                 script {
                 echo "Building the docker image"
                 withCredentials([usernamePassword(credentialsId: 'ecr-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                    docker build -t 420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0 .
-                    docker push 420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0
+                    docker build -t '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' .
+                    docker push '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0'
                 }
                 }
        
