@@ -27,13 +27,14 @@ pipeline {
                 script {
                 echo "Building the docker image"
                 withCredentials([usernamePassword(credentialsId: 'ecr-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                    docker build -t '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' .
-                    //docker push '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0'
+                   sh "docker build -t '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' ."
+                    sh "docker push '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' "
                 }
                 }
        
             }
         }
+
         // stage('Deploy') {
         //     environment {
         //         AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
