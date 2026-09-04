@@ -17,6 +17,7 @@ pipeline {
                 script {
                 echo 'Building the application...'
                 sh 'gradle build'
+                sh 'pwd'
                 
                 }
               
