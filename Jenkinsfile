@@ -3,7 +3,7 @@ pipeline {
 
      environment {
         DOCKER_REPO_SERVER = '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app'
-        IMAGE_NAME = 'test-app:1.0'
+        IMAGE_NAME = 'test-app'
      }
 
      tools {
