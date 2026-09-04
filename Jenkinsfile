@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                 echo 'Building the application...'
-                sh 'gradle -b eks-java-app/build.gradle build'
+                sh 'gradle build'
                 
                 }
               
