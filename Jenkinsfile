@@ -1,9 +1,10 @@
 pipeline {
     agent any
 
-    // environment {
-
-    // }
+     environment {
+        DOCKER_REPO_SERVER = '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app'
+        IMAGE_NAME = 'test-app'
+     }
 
      tools {
             gradle 'gradle-9.8.0'
@@ -29,7 +30,7 @@ pipeline {
                 script {
                 echo "Building the docker image"
                 withCredentials([usernamePassword(credentialsId: 'ecr-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                   sh "docker build -t '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' ."
+                   sh "docker build -t ${DOCKER_REPO_SERVER}:${IMAGE_NAME}' ."
                     sh "docker push '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' "
                 }
                 }
