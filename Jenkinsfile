@@ -30,7 +30,7 @@ pipeline {
                 echo "Building the docker image"
                 withCredentials([usernamePassword(credentialsId: 'ecr-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                    sh "docker build -t ${DOCKER_REPO_SERVER}:${IMAGE_NAME} ."
-                   sh "echo $PASS | docker login -u $USER --password-std-in ${DOCKER_REPO_SERVER} "
+                   sh "echo $PASS | docker login -u $USER --password-stdin ${DOCKER_REPO_SERVER} "
                    sh "docker push ${DOCKER_REPO_SERVER}:${IMAGE_NAME} "
                 }
                 }
