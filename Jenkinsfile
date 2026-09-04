@@ -18,8 +18,7 @@ pipeline {
                 script {
                 echo 'Building the application...'
                 sh 'gradle build'
-                sh 'pwd'
-                sh 'ls -lh build/libs/'
+
                 
                 }
               
@@ -31,7 +30,8 @@ pipeline {
                 echo "Building the docker image"
                 withCredentials([usernamePassword(credentialsId: 'ecr-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                    sh "docker build -t ${DOCKER_REPO_SERVER}:${IMAGE_NAME} ."
-                    sh "docker push '420392929933.dkr.ecr.us-east-1.amazonaws.com/company-app:1.0' "
+                   sh "echo $PASS | docker login -u $USER --password-std-in ${DOCKER_REPO_SERVER} "
+                   sh "docker push ${DOCKER_REPO_SERVER}:${IMAGE_NAME} "
                 }
                 }
        
