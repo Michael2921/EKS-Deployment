@@ -5,9 +5,9 @@ pipeline {
 
     // }
 
-    // tools {
-
-    // }
+     tools {
+            gradle 'gradle-9.8.0'
+     }
 
     stages {
 
@@ -15,6 +15,7 @@ pipeline {
             steps {
                 script {
                 echo 'Building the application...'
+                sh 'gradle -b eks-java-app/build.gradle build'
                 
                 }
               
@@ -31,26 +32,26 @@ pipeline {
        
             }
         }
-        stage('Deploy') {
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
-                AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
-            }
-            steps {
-                script {
-                    echo 'Deploying the configmap'
-                    sh 'envsubst < eks-deployment/companyapp-configmap.yaml | kubectl apply -f -'                    
-                   // echo 'Deploying mysql...'
-                   // sh 'helm repo add bitnami https://charts.bitnami.com/bitnami' // add repo first
-                   // sh 'helm install mysql --values eks-deployment/helmvalues-mysql.yaml bitnami/mysql' // install mysql from added repo
-                    echo 'Deploying phpmyadmin'
-                    sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl apply -f -'
-                    echo 'Deploying companyapp'
-                    sh 'envsubst < eks-deployment/companyapp-deployment.yaml | kubectl apply -f -'
-                }
+        // stage('Deploy') {
+        //     environment {
+        //         AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
+        //         AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
+        //     }
+        //     steps {
+        //         script {
+        //             echo 'Deploying the configmap'
+        //             sh 'envsubst < eks-deployment/companyapp-configmap.yaml | kubectl apply -f -'                    
+        //            // echo 'Deploying mysql...'
+        //            // sh 'helm repo add bitnami https://charts.bitnami.com/bitnami' // add repo first
+        //            // sh 'helm install mysql --values eks-deployment/helmvalues-mysql.yaml bitnami/mysql' // install mysql from added repo
+        //             echo 'Deploying phpmyadmin'
+        //             sh 'envsubst < eks-deployment/phpmyadmin-deployment.yaml | kubectl apply -f -'
+        //             echo 'Deploying companyapp'
+        //             sh 'envsubst < eks-deployment/companyapp-deployment.yaml | kubectl apply -f -'
+        //         }
              
-            }
-        }
+        //     }
+        // }
 
     }
     
