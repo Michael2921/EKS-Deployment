@@ -13,6 +13,10 @@ java {
     }
 }
 
+springBoot {
+    mainClass = 'com.example.Application'
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
@@ -26,3 +30,4 @@ dependencies {
     implementation 'com.mysql:mysql-connector-j:9.4.0'
     testImplementation 'junit:junit:4.13.2'
 }
+
