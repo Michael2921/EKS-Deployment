@@ -1,0 +1,1 @@
+This project demonstrates how to deploy multiple applications (phpMyAdmin, MySQL, a Java app) using a Jenkins continuous deployment pipeline. It also covers role creation, autoscaling, and Fargate for AWS-managed nodes.
